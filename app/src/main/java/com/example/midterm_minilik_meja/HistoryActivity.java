@@ -13,17 +13,17 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("History");
+        setTitle("History of Generated Numbers");
         setContentView(R.layout.activity_history);
 
-        ListView historyList = findViewById(R.id.historyList);
+        ListView listHistory = findViewById(R.id.listHistory);
 
         ArrayList<String> numbers = new ArrayList<>();
         for (Integer n : new TreeSet<>(DataStore.getHistoryNumbers())) {
             numbers.add(String.valueOf(n));
         }
 
-        historyList.setAdapter(
+        listHistory.setAdapter(
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, numbers)
         );
     }
